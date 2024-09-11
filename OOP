@@ -1,0 +1,73 @@
+open class Animal{
+
+    open var Food = ""
+    open var Image = ""
+    open var Habitat = ""
+//    open val Food = ""
+//    open val Image = ""
+//    open val Habitat = ""
+
+    open fun makeNoise(){
+        println("The Animal is making noise")
+    }
+    open fun eat(){
+        println("The Animal is eating")
+    }
+    open fun roam(){
+        println("The Animal is roaming")
+    }
+
+}
+class Hippo:Animal(){
+
+    override var Food = "grass"
+    override var Image = "hippo.jpg"
+    override var Habitat = "water"
+
+    override fun makeNoise() {
+        println("Begemoting")
+    }
+    override fun eat() {
+        println("Hippo is eating $Food")
+    }
+    override fun roam(){
+        println("Hippo is roaming")
+    }
+
+}
+open class Canine:Animal(){
+    override fun roam(){
+        println("The Canine is roaming")
+    }
+}
+class Wolf: Canine(){
+    override var Food = "meat"
+    override var Image = "Wolf.jpg"
+    override var Habitat = "forest"
+
+
+    override fun makeNoise() {
+        println("Woof")
+    }
+    override fun eat(){
+        println("Wolf is eating $Food")
+    }
+
+}
+class Vet{
+    fun giveShot(animal: Animal){
+        animal.makeNoise()
+    }
+}
+fun main(args:Array<String>){
+    val animal = arrayOf(Wolf(), Hippo())
+    for (item in animal){
+        item.roam()
+        item.eat()
+        println()
+    }
+    val vet = Vet()
+    vet.giveShot(Wolf())
+    vet.giveShot(Hippo())
+
+}
