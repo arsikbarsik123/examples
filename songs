@@ -1,0 +1,15 @@
+class Song(val title:String, val artist:String){
+    fun play(){
+        println("Started play the $title $artist")
+    }
+    fun stop(){
+        println("Stopped play the $title")
+    }
+}
+
+fun main() {
+    val song1 = Song("Записки(Outro)", "ALBLAK 52")
+    val song2 = Song("Заря", "ALBLAK 52")
+    song1.play()
+    song1.stop()
+}
