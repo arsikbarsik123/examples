@@ -1,0 +1,40 @@
+#КАМЕНЬ НОЖНИЦЫ БУМАГА С КОМПЬЮТЕРОМ
+
+fun GameChoice(choices: Array<String>): String{
+    return choices[(choices.size * Math.random()).toInt()]
+}
+
+fun UserChoice(choices: Array<String>):String{
+    val choices = arrayOf("Rock", "Paper", "Scissors")
+    var isValidChoice = false
+    var res:String = ""
+    while (!isValidChoice){
+        print("Выберите один из вариантов: ")
+        var UserChoice = readLine()
+        for (curr in choices){
+            if (UserChoice==curr){
+                res = UserChoice
+                isValidChoice=true
+                break
+            }
+        }
+    }
+    return res
+}
+
+
+fun main(args: Array<String>) {
+    val choices = arrayOf("Rock", "Paper", "Scissors")
+    val pos1:String = UserChoice(choices)
+    val pos2:String = GameChoice(choices)
+    println("User choose: $pos1")
+    println("PC choose: $pos2")
+    if (pos1 == pos2) println("Tie")
+    else if (pos1=="Rock" && pos2=="Paper") println("Lose")
+    else if (pos1=="Rock" && pos2=="Scissors") println("Win")
+    else if (pos1=="Paper" && pos2=="Rock") println("Win")
+    else if (pos1=="Paper" && pos2=="Scissors") println("Lose")
+    else if (pos1=="Scissors" && pos2=="Paper") println("Win")
+    else if (pos1=="Scissors" && pos2=="Rock") println("Lose")
+
+}
